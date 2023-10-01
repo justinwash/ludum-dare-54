@@ -4,11 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dh8rai4b7egqf" path="res://addons/kenney_prototype_textures/red/texture_03.png" id="2_3t1ns"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_0bs01"]
+radius = 1.0
+height = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4xha"]
 albedo_texture = ExtResource("2_3t1ns")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4p3xv"]
+radius = 1.0
 
 [node name="RedBullet" type="CharacterBody3D"]
 top_level = true

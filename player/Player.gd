@@ -7,9 +7,10 @@ var can_fire = true
 @onready var weapon_holder = $RotationHelper/WeaponHolder
 
 @onready var camera = get_node("/root/Main/Camera3D")
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var weapon_pickup = preload("res://pickups/WeaponPickup.tscn")
 
 func _physics_process(delta):
     if not is_on_floor():
@@ -30,6 +31,15 @@ func _physics_process(delta):
             weapon.fire()
 
     move_and_slide()
+    
+    
+func throw_weapon(weapon_type):
+    var new_pickup: RigidBody3D = weapon_pickup.instantiate()
+    new_pickup.pickup_type = weapon_type
+    new_pickup.name = str(weapon_type).replace("Gun", "Pickup")
+    get_node("/root/Main/Level1").add_child(new_pickup)
+    new_pickup.global_position = $RotationHelper/PickupOrigin.global_position
+    new_pickup.apply_central_impulse(($RotationHelper/PickupOrigin.global_position - self.global_position) * 5)
     
     
 func _input(event):

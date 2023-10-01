@@ -34,5 +34,9 @@ current = true
 size = 60.02
 
 [node name="Level1" parent="." instance=ExtResource("1_k2wkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.02082, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_26jsc")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2.07608, 0)
+
+[node name="Projectiles" type="Node3D" parent="."]
