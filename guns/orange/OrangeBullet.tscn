@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq50hoq4kfe5c"]
+
+[ext_resource type="Script" path="res://guns/green/GreenBullet.gd" id="1_lrnek"]
+[ext_resource type="Texture2D" uid="uid://0epgk2jlkpca" path="res://addons/kenney_prototype_textures/orange/texture_03.png" id="2_bfggv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7jgi4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4iax"]
+albedo_texture = ExtResource("2_bfggv")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4p3xv"]
+
+[node name="OrangeBullet" type="CharacterBody3D"]
+top_level = true
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_lrnek")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_7jgi4")
+surface_material_override/0 = SubResource("StandardMaterial3D_j4iax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4p3xv")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://btfrgp7ahloyg"]
+
+[ext_resource type="Texture2D" uid="uid://bijsg8wolmc26" path="res://addons/kenney_prototype_textures/purple/texture_01.png" id="1_qt8nx"]
+[ext_resource type="Script" path="res://guns/purple/PurpleGun.gd" id="2_pe61m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dacah"]
+albedo_texture = ExtResource("1_qt8nx")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hcatm"]
+material = SubResource("StandardMaterial3D_dacah")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 1.0
+
+[node name="PurpleGun" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.253107, -1.36564, 0.50782)
+mesh = SubResource("CylinderMesh_hcatm")
+skeleton = NodePath("../../../../../..")
+script = ExtResource("2_pe61m")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="ProjectileOrigin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

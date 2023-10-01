@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctce55fdl7312"]
+
+[ext_resource type="Texture2D" uid="uid://0epgk2jlkpca" path="res://addons/kenney_prototype_textures/orange/texture_03.png" id="1_b4ju4"]
+[ext_resource type="Script" path="res://guns/orange/OrangeGun.gd" id="2_t71pg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dacah"]
+albedo_texture = ExtResource("1_b4ju4")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jee3v"]
+material = SubResource("StandardMaterial3D_dacah")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 1.0
+
+[node name="OrangeGun" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.253107, -1.36564, 0.50782)
+mesh = SubResource("CylinderMesh_jee3v")
+skeleton = NodePath("../../../../../..")
+script = ExtResource("2_t71pg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="ProjectileOrigin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

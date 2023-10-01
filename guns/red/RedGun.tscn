@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxenyhwj02qrd"]
+
+[ext_resource type="Texture2D" uid="uid://dxcb1nym4ycqf" path="res://addons/kenney_prototype_textures/red/texture_01.png" id="1_1swib"]
+[ext_resource type="Script" path="res://guns/red/RedGun.gd" id="2_o3h6x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dacah"]
+albedo_texture = ExtResource("1_1swib")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mguq2"]
+material = SubResource("StandardMaterial3D_dacah")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 1.0
+
+[node name="RedGun" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.253107, -1.36564, 0.50782)
+mesh = SubResource("CylinderMesh_mguq2")
+skeleton = NodePath("../../../../../..")
+script = ExtResource("2_o3h6x")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="ProjectileOrigin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
