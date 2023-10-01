@@ -12,6 +12,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var weapon_pickup = preload("res://pickups/WeaponPickup.tscn")
 
+var health = 100
+var invuln = false
+
 func _physics_process(delta):
     if not is_on_floor():
         velocity.y -= gravity * delta
@@ -31,6 +34,13 @@ func _physics_process(delta):
             weapon.fire()
 
     move_and_slide()
+    
+
+func hurt(damage):
+    $AnimationPlayer.play("hurt")
+    health -= damage
+    if health <= 0:
+        print("you lose")
     
     
 func throw_weapon(weapon_type):

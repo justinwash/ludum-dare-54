@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://m6kvxivxgvep"]
+[gd_scene load_steps=10 format=3 uid="uid://m6kvxivxgvep"]
 
 [ext_resource type="Texture2D" uid="uid://c3ph0giokqpj" path="res://addons/kenney_prototype_textures/dark/texture_04.png" id="1_nqfse"]
 [ext_resource type="PackedScene" uid="uid://db5167vo17do0" path="res://pickups/WeaponPickup.tscn" id="2_ty610"]
+[ext_resource type="PackedScene" uid="uid://cdeqwcklqkg7p" path="res://enemies/RedEnemy.tscn" id="3_6k884"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1juo"]
 albedo_texture = ExtResource("1_nqfse")
@@ -26,6 +27,8 @@ size = Vector3(1, 40, 109)
 [node name="CSGCombiner" type="CSGCombiner3D" parent="."]
 gi_mode = 2
 use_collision = true
+collision_layer = 9
+collision_mask = 9
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner"]
 material_override = SubResource("StandardMaterial3D_f1juo")
@@ -58,3 +61,6 @@ pickup_type = "PurpleGun"
 [node name="OrangePickup" parent="." instance=ExtResource("2_ty610")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -9)
 pickup_type = "OrangeGun"
+
+[node name="RedEnemy" parent="." instance=ExtResource("3_6k884")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -22, 4, 31)

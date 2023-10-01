@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdeqwcklqkg7p"]
+
+[ext_resource type="Script" path="res://enemies/RedEnemy.gd" id="1_ohub3"]
+[ext_resource type="Texture2D" uid="uid://dh8rai4b7egqf" path="res://addons/kenney_prototype_textures/red/texture_03.png" id="2_hso4a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhr7y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alufg"]
+albedo_texture = ExtResource("2_hso4a")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x1i3t"]
+material = SubResource("StandardMaterial3D_alufg")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b882y"]
+radius = 0.733697
+height = 2.2547
+
+[node name="RedEnemy" type="CharacterBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_ohub3")
+
+[node name="BodyCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_nhr7y")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_x1i3t")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_b882y")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
