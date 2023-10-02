@@ -43,7 +43,7 @@ func _on_wave_timer_timeout():
     enemy.queue_free()
   wave += 1
   level.get_node("EnemySpawns").spawn_chance += 3
-  level.get_node("EnemySpawns").spawn_types = clamp(level.get_node("EnemySpawns").spawn_types, 1, 4)
+  level.get_node("EnemySpawns").spawn_types = clamp(level.get_node("EnemySpawns").spawn_types + 1, 1, 4)
   pre_wave_screen.get_node("Title").text = "WAVE " + str(wave)
   pre_wave_screen.visible = true
   pre_wave_screen.get_node("Title/AnimationPlayer").play("cycle")

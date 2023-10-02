@@ -15,7 +15,7 @@ sky_material = SubResource("ProceduralSkyMaterial_gkw7r")
 [sub_resource type="Environment" id="Environment_l5gnq"]
 background_mode = 2
 sky = SubResource("Sky_27261")
-ambient_light_color = Color(0.686275, 0.67451, 0, 1)
+reflected_light_source = 2
 tonemap_mode = 2
 ssao_enabled = true
 sdfgi_enabled = true
@@ -314,6 +314,11 @@ autostart = true
 process_mode = 3
 wait_time = 2.0
 one_shot = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.514874, -0.856853, -0.0265796, -0.366954, 0.192266, 0.910153, -0.774758, 0.478368, -0.413418, -87.0493, 66.321, 0)
+light_color = Color(0.984314, 0.976471, 0.882353, 1)
+shadow_enabled = true
 
 [connection signal="pressed" from="CanvasLayer/TitleScreen/Panel/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TitleScreen/Panel/QuitButton" to="." method="_on_quit_button_pressed"]
