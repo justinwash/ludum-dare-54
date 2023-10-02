@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://m6kvxivxgvep"]
+[gd_scene load_steps=12 format=3 uid="uid://m6kvxivxgvep"]
 
 [ext_resource type="Texture2D" uid="uid://c3ph0giokqpj" path="res://addons/kenney_prototype_textures/dark/texture_04.png" id="1_nqfse"]
+[ext_resource type="Texture2D" uid="uid://ds26v27ebts64" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="2_83u1x"]
 [ext_resource type="PackedScene" uid="uid://db5167vo17do0" path="res://pickups/WeaponPickup.tscn" id="2_ty610"]
 [ext_resource type="Script" path="res://levels/EnemySpawns.gd" id="4_ws3ww"]
 
@@ -8,7 +9,8 @@
 albedo_texture = ExtResource("1_nqfse")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3tyw"]
-albedo_texture = ExtResource("1_nqfse")
+albedo_texture = ExtResource("2_83u1x")
+albedo_texture_force_srgb = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xd4br"]
 size = Vector3(1, 54, 109)
@@ -22,7 +24,10 @@ size = Vector3(1, 61, 109)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pyjhl"]
 size = Vector3(1, 40, 109)
 
-[node name="Level1" type="StaticBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_s8wg2"]
+size = Vector3(1, 116, 126)
+
+[node name="Level" type="StaticBody3D"]
 
 [node name="CSGCombiner" type="CSGCombiner3D" parent="."]
 gi_mode = 2
@@ -50,6 +55,10 @@ shape = SubResource("BoxShape3D_5gyvs")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 3, 30)
 shape = SubResource("BoxShape3D_pyjhl")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, 0, 20, 0)
+shape = SubResource("BoxShape3D_s8wg2")
 
 [node name="RedPickup" parent="." instance=ExtResource("2_ty610")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 2, 9)

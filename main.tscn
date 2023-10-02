@@ -64,7 +64,7 @@ size = 60.02
 [node name="Level" parent="." instance=ExtResource("1_k2wkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.02082, 0)
 
-[node name="EnemySpawns" parent="Level" index="8"]
+[node name="EnemySpawns" parent="Level" index="9"]
 spawn_chance = 10
 
 [node name="Player" parent="." instance=ExtResource("2_26jsc")]
@@ -114,10 +114,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 35.0
-offset_top = -429.0
-offset_right = 543.0
-offset_bottom = -36.0
+offset_left = 51.0
+offset_top = -448.0
+offset_right = 559.0
+offset_bottom = -55.0
 grow_vertical = 0
 text = "OH GOSH YOU'RE BEING ATTACKED BY ROBOTS!
 
@@ -153,6 +153,7 @@ theme_override_font_sizes/font_size = 56
 text = "PLAY"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/TitleScreen/Panel"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -248,6 +249,7 @@ theme_override_font_sizes/font_size = 56
 text = "PLAY"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/GameOverScreen/Panel"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0

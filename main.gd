@@ -25,6 +25,12 @@ func _physics_process(_delta):
     player.ui.visible = false
     wave_time_label.visible = false
     wave = 1
+    player.health = 100
+    pre_wave_screen.get_node("Title").text = "WAVE " + str(wave)
+    for enemy in get_tree().get_nodes_in_group("enemy"):
+        enemy.queue_free()
+    level.get_node("EnemySpawns").spawn_chance = 10
+    level.get_node("EnemySpawns").spawn_types = 1
     game_over_screen.visible = true
     game_over_screen.get_node("Panel/Title/AnimationPlayer").play("cycle")
     get_tree().paused = true
@@ -35,6 +41,7 @@ func _on_pre_wave_timer_timeout():
   wave_timer.start()
   wave_time_label.visible = true
   player.ui.visible = true
+  player.health = clamp(player.health + int(player.health/4), 0, 100)
   
   
 func _on_wave_timer_timeout():
@@ -42,7 +49,7 @@ func _on_wave_timer_timeout():
   for enemy in get_tree().get_nodes_in_group("enemy"):
     enemy.queue_free()
   wave += 1
-  level.get_node("EnemySpawns").spawn_chance += 3
+  level.get_node("EnemySpawns").spawn_chance += 1
   level.get_node("EnemySpawns").spawn_types = clamp(level.get_node("EnemySpawns").spawn_types + 1, 1, 4)
   pre_wave_screen.get_node("Title").text = "WAVE " + str(wave)
   pre_wave_screen.visible = true
