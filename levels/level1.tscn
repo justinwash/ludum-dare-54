@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c3ph0giokqpj" path="res://addons/kenney_prototype_textures/dark/texture_04.png" id="1_nqfse"]
 [ext_resource type="PackedScene" uid="uid://db5167vo17do0" path="res://pickups/WeaponPickup.tscn" id="2_ty610"]
-[ext_resource type="PackedScene" uid="uid://cdeqwcklqkg7p" path="res://enemies/RedEnemy.tscn" id="3_6k884"]
+[ext_resource type="Script" path="res://levels/EnemySpawns.gd" id="4_ws3ww"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1juo"]
 albedo_texture = ExtResource("1_nqfse")
@@ -62,5 +62,32 @@ pickup_type = "PurpleGun"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -9)
 pickup_type = "OrangeGun"
 
-[node name="RedEnemy" parent="." instance=ExtResource("3_6k884")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -22, 4, 31)
+[node name="EnemySpawns" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.47938, 0)
+script = ExtResource("4_ws3ww")
+spawn_chance = 5
+spawn_types = 1
+
+[node name="EnemySpawner" type="Node3D" parent="EnemySpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4271, 0, 0)
+
+[node name="EnemySpawner2" type="Node3D" parent="EnemySpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.5588, 0, 0)
+
+[node name="EnemySpawner3" type="Node3D" parent="EnemySpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131699, 0, -32.1381)
+
+[node name="EnemySpawner4" type="Node3D" parent="EnemySpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131699, 0, 31.8747)
+
+[node name="EnemySpawner5" type="Node3D" parent="EnemySpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.6368, 0, 31.8747)
+
+[node name="EnemySpawner6" type="Node3D" parent="EnemySpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.3491, 0, 31.8747)
+
+[node name="EnemySpawner7" type="Node3D" parent="EnemySpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.6905, 0, -32.0064)
+
+[node name="EnemySpawner8" type="Node3D" parent="EnemySpawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.5588, 0, -32.0064)

@@ -14,26 +14,40 @@ albedo_texture = ExtResource("2_wosps")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_bxvju"]
 material = SubResource("StandardMaterial3D_cgsdb")
+top_radius = 1.0
+bottom_radius = 1.0
+height = 3.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imxcb"]
 albedo_texture = ExtResource("3_acsek")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_5753p"]
 material = SubResource("StandardMaterial3D_imxcb")
+top_radius = 1.0
+bottom_radius = 1.0
+height = 3.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qucf"]
 albedo_texture = ExtResource("4_b57li")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_45bl6"]
 material = SubResource("StandardMaterial3D_3qucf")
+top_radius = 1.0
+bottom_radius = 1.0
+height = 3.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cccs"]
 albedo_texture = ExtResource("5_r3odc")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6gb76"]
 material = SubResource("StandardMaterial3D_7cccs")
+top_radius = 1.0
+bottom_radius = 1.0
+height = 3.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6otpn"]
+height = 3.0
+radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5ch02"]
 radius = 2.0

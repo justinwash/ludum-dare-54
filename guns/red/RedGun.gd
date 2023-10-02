@@ -15,7 +15,7 @@ func fire():
     var new_bullet = bullet.instantiate()
     new_bullet.global_position = $ProjectileOrigin.global_position
     new_bullet.velocity = (aim_point.global_position - global_position) * bullet_speed
-    projectiles_node.add_child(new_bullet)
+    projectiles_node.add_child(new_bullet, true)
 
 
 func _on_timer_timeout():

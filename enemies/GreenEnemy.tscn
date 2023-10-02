@@ -1,25 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdeqwcklqkg7p"]
+[gd_scene load_steps=7 format=3 uid="uid://cnkaqbd5mmr5p"]
 
-[ext_resource type="Script" path="res://enemies/RedEnemy.gd" id="1_ohub3"]
-[ext_resource type="Texture2D" uid="uid://dh8rai4b7egqf" path="res://addons/kenney_prototype_textures/red/texture_03.png" id="2_hso4a"]
+[ext_resource type="Script" path="res://enemies/GreenEnemy.gd" id="1_o0f15"]
+[ext_resource type="Texture2D" uid="uid://bnr0exxo3tmw3" path="res://addons/kenney_prototype_textures/green/texture_03.png" id="2_5cb47"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhr7y"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alufg"]
-albedo_texture = ExtResource("2_hso4a")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fis6g"]
+albedo_texture = ExtResource("2_5cb47")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_x1i3t"]
-material = SubResource("StandardMaterial3D_alufg")
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xjpqp"]
+material = SubResource("StandardMaterial3D_fis6g")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b882y"]
-radius = 0.895344
-height = 2.44427
+radius = 0.733697
+height = 2.2547
 
-[node name="RedEnemy" type="CharacterBody3D" groups=["enemy"]]
+[node name="GreenEnemy" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 collision_layer = 8
 collision_mask = 8
-script = ExtResource("1_ohub3")
+script = ExtResource("1_o0f15")
 SPEED = 10.0
 
 [node name="BodyCollider" type="CollisionShape3D" parent="."]
@@ -27,7 +27,7 @@ shape = SubResource("CapsuleShape3D_nhr7y")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_x1i3t")
+mesh = SubResource("CapsuleMesh_xjpqp")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 9

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvkj36hsfnok0"]
 
-[ext_resource type="Script" path="res://guns/green/GreenBullet.gd" id="1_qu3ad"]
+[ext_resource type="Script" path="res://guns/red/RedBullet.gd" id="1_dwd8k"]
 [ext_resource type="Texture2D" uid="uid://dh8rai4b7egqf" path="res://addons/kenney_prototype_textures/red/texture_03.png" id="2_3t1ns"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_0bs01"]
@@ -18,7 +18,7 @@ top_level = true
 collision_layer = 10
 collision_mask = 10
 motion_mode = 1
-script = ExtResource("1_qu3ad")
+script = ExtResource("1_dwd8k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_0bs01")
@@ -26,3 +26,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w4xha")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_4p3xv")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

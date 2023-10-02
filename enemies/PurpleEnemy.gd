@@ -21,9 +21,8 @@ func _physics_process(delta):
 func _on_area_3d_body_entered(body):
     if "Player" in str(body.name):
         body.hurt(10)
-        self.queue_free() 
+        self.queue_free()  
     
-    if "RedBullet" in str(body.name):
-        body.visible = false
+    if "PurpleBullet" in str(body.name):
         self.queue_free()
         body.queue_free()

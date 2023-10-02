@@ -15,8 +15,8 @@ radius = 1.0
 
 [node name="GreenBullet" type="CharacterBody3D"]
 top_level = true
-collision_layer = 2
-collision_mask = 2
+collision_layer = 10
+collision_mask = 10
 motion_mode = 1
 script = ExtResource("1_8wff8")
 
@@ -26,3 +26,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w4xha")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_4p3xv")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

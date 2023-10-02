@@ -23,7 +23,6 @@ func _on_area_3d_body_entered(body):
         body.hurt(10)
         self.queue_free() 
     
-    if "RedBullet" in str(body.name):
-        body.visible = false
+    if "OrangeBullet" in str(body.name):
         self.queue_free()
         body.queue_free()

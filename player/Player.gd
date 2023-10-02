@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 15.0
+@export var SPEED = 20.0
 const ACCEL = 1.0
 
 var can_fire = true
@@ -13,7 +13,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var weapon_pickup = preload("res://pickups/WeaponPickup.tscn")
 
 var health = 100
-var invuln = false
+@export var invuln = false
+
+@onready var ui = $CanvasLayer
 
 func _physics_process(delta):
     if not is_on_floor():
@@ -37,6 +39,7 @@ func _physics_process(delta):
     
 
 func hurt(damage):
+  if invuln == false:
     $AnimationPlayer.play("hurt")
     health -= damage
     if health <= 0:
@@ -47,7 +50,7 @@ func throw_weapon(weapon_type):
     var new_pickup: RigidBody3D = weapon_pickup.instantiate()
     new_pickup.pickup_type = weapon_type
     new_pickup.name = str(weapon_type).replace("Gun", "Pickup")
-    get_node("/root/Main/Level1").add_child(new_pickup)
+    get_node("/root/Main/Level").add_child(new_pickup)
     new_pickup.global_position = $RotationHelper/PickupOrigin.global_position
     new_pickup.apply_central_impulse(($RotationHelper/PickupOrigin.global_position - self.global_position) * 5)
     
